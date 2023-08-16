@@ -30,7 +30,7 @@ backup() {
 	TMP_FILE=$(mktemp -u)
 	tar -czf "$TMP_FILE" -C "$RRD_DIR"
 	mkdir -p "$BACKUP_DIR"
-	mv "$TMP_FILE" "$BACKUP_DIR/$BACKUP_FILE"
+	mv -f "$TMP_FILE" "$BACKUP_DIR/$BACKUP_FILE"
 }
 
 restore() {
