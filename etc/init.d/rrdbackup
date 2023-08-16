@@ -2,7 +2,8 @@
 
 
 # OpenWrt init.d script to backup/restore the collectd RRD database, to have it persist across (planned) reboots
-# https://github.com/sqrwf/openwrt-rrdbackup/
+# https://github.com/pdsakurai/openwrt-rrdbackup
+# Forked from: https://github.com/sqrwf/openwrt-rrdbackup/
 
 # This is free and unencumbered software released into the public domain.
 # For more information, please refer to <http://unlicense.org/>
