@@ -28,7 +28,7 @@ readonly EXTRA_HELP="        backup          Backup current rrd database"
 
 backup() {
 	local TMP_FILE=$(mktemp -u)
-	tar -czf "$TMP_FILE" -C "$RRD_DIR"
+	tar -czf "$TMP_FILE" -C / "${RRD_DIR#/}"
 	mkdir -p "$BACKUP_DIR"
 	mv -f "$TMP_FILE" "$BACKUP_FILE"
 }
