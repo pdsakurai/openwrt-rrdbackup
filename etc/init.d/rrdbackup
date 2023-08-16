@@ -10,7 +10,7 @@
 
 
 # backup target directory and file
-BACKUP_DIR=/etc/collectd
+BACKUP_DIR=/root
 BACKUP_FILE=rrdbackup.tgz
 
 # directory containing collectd's RRD files (usually /tmp/rrd)
