@@ -15,7 +15,7 @@ BACKUP_FILE=rrdbackup.tgz
 
 # directory containing collectd's RRD files (usually /tmp/rrd)
 # root relative, i.e. no slash in front (to mitigate tar "leading '/'" warning)
-RRD_DIR=tmp/rrd
+RRD_DIR=/tmp/rrd
 
 # queue rrdbackup to start before collectd starts (80) and stop after collect stops (10):
 START=79
@@ -28,7 +28,7 @@ EXTRA_HELP="        backup          Backup current rrd database"
 
 backup() {
 	TMP_FILE=$(mktemp -u)
-	tar -czf "$TMP_FILE" -C / "$RRD_DIR"
+	tar -czf "$TMP_FILE" -C "$RRD_DIR"
 	mkdir -p "$BACKUP_DIR"
 	mv "$TMP_FILE" "$BACKUP_DIR/$BACKUP_FILE"
 	rm -f "$TMP_FILE"
