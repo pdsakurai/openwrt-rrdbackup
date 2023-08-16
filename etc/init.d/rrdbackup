@@ -11,7 +11,7 @@
 
 # backup target directory and file
 BACKUP_DIR=/root
-BACKUP_FILE=rrdbackup.tgz
+BACKUP_FILE="$BACKUP_DIR/collectd_rrd_backup.tgz"
 
 # directory containing collectd's RRD files (usually /tmp/rrd)
 # root relative, i.e. no slash in front (to mitigate tar "leading '/'" warning)
@@ -30,11 +30,11 @@ backup() {
 	TMP_FILE=$(mktemp -u)
 	tar -czf "$TMP_FILE" -C "$RRD_DIR"
 	mkdir -p "$BACKUP_DIR"
-	mv -f "$TMP_FILE" "$BACKUP_DIR/$BACKUP_FILE"
+	mv -f "$TMP_FILE" "$BACKUP_FILE"
 }
 
 restore() {
-	[ -f "$BACKUP_DIR/$BACKUP_FILE" ] && tar -xzf "$BACKUP_DIR/$BACKUP_FILE" -C /
+	[ -f "$BACKUP_FILE" ] && tar -xzf "$BACKUP_FILE" -C /
 }
 
 start() {
